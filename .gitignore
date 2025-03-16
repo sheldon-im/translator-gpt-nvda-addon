@@ -1,0 +1,27 @@
+# Build files
+*.nvda-addon
+.sconsign.dblite
+build/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db 

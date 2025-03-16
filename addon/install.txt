@@ -1,0 +1,8 @@
+Translator GPT
+
+This add-on translates NVDA speech to a specified language using OpenAI's GPT-4o-mini model.
+It allows users to hear NVDA's output in their preferred language.
+
+To use this add-on, you need an OpenAI API key with access to the GPT-4o-mini model.
+
+After installation, go to NVDA menu > Preferences > Translator GPT Settings to configure the add-on. 
