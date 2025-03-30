@@ -19,7 +19,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""This add-on translates NVDA speech to a specified language using OpenAI's GPT-4o-mini model. It allows users to hear NVDA's output in their preferred language."""),
 	# version
-	"addon_version": "1.0",
+	"addon_version": "1.01",
 	# Author(s)
 	"addon_author": u"Sheldon-Im",
 	# URL for the add-on documentation support
