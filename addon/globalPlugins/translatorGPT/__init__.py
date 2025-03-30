@@ -25,8 +25,8 @@ addonHandler.initTranslation()
 # Constants
 ADDON_SUMMARY = "Translator GPT"
 ADDON_DESCRIPTION = "Translates NVDA speech using GPT-4o-mini"
-ADDON_VERSION = "1.0"
-ADDON_AUTHOR = "NVDA Community"
+ADDON_VERSION = "1.01"
+ADDON_AUTHOR = "Sheldon-Im"
 
 # Configuration
 CONFIG_SECTION = "translatorGPT"
@@ -115,8 +115,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         
         # Return None to prevent the original speech from being spoken
         return None
-    
-    def queue_translation(self, text):
+        # Check if the text is a single character (for both Korean and English)
+        # Korean characters are composed of multiple bytes but are still single characters
+        if len(text.strip()) == 1:
+        # If it's a single character, speak the original text without translation
+            return self.original_speak(speechSequence, *args, **kwargs)
+
+def queue_translation(self, text):
         self.translation_queue.append(text)
         
         if not self.is_translating:
@@ -175,7 +180,7 @@ Only respond with the translation itself, no explanations or additional text."""
                         "content": text
                     }
                 ],
-                "temperature": 0.3
+                "temperature": 0.7
             }
             
             # Convert data to JSON
