@@ -109,19 +109,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         if not text.strip():
             return self.original_speak(speechSequence, *args, **kwargs)
         
+        # Check if the text is a single character (for both Korean and English)
+        # Korean characters are composed of multiple bytes but are still single characters
+        if len(text.strip()) == 1:
+            # If it's a single character, speak the original text without translation
+            return self.original_speak(speechSequence, *args, **kwargs)
+            
         # Instead of speaking the original text, just queue it for translation
         # and block the original speech
         self.queue_translation(text)
         
         # Return None to prevent the original speech from being spoken
         return None
-        # Check if the text is a single character (for both Korean and English)
-        # Korean characters are composed of multiple bytes but are still single characters
-        if len(text.strip()) == 1:
-        # If it's a single character, speak the original text without translation
-            return self.original_speak(speechSequence, *args, **kwargs)
 
-def queue_translation(self, text):
+    def queue_translation(self, text):
         self.translation_queue.append(text)
         
         if not self.is_translating:
